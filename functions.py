@@ -77,11 +77,12 @@ def mediaFilter(image, convMatrix, matrixSize):
 
 	return result	
 
-def gaussianFormule(x, y, sigma):
-	return exp(-x*y/(2*sigma**2))
+#Verificar Fórmula Correta!!!
+def gaussianFormule(x, y, sigma): 
+	return np.exp(-x*y/(2*sigma**2))
 
 def gaussianFilter(image, matrixSize, sigma):
-	#result = deepcopy(image)
+	result = deepcopy(image)
 	mask = np.zeros((matrixSize, matrixSize))
 	for x in range(0,matrixSize):
 		for y in range(0, matrixSize):
@@ -89,6 +90,7 @@ def gaussianFilter(image, matrixSize, sigma):
 			mask[x][y] = value
 
 	return convFilter(image, mask, matrixSize)
+
 		
 
 
