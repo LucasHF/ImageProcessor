@@ -45,7 +45,13 @@ def convFilter(image, convMatrix, matrixSize):
 						sumR += convMatrix[xConv][yConv] *  r
 						sumG += convMatrix[xConv][yConv] *  g
 						sumB += convMatrix[xConv][yConv] *  b
-
+			if sumR>255:
+				sumR = 255
+			if sumG>255:
+				sumG = 255
+			if sumB>255:
+				sumB = 255
+			
 			result[x, y] = (sumB, sumG, sumR)
 
 	return result		

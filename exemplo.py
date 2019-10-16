@@ -24,13 +24,13 @@ histEq = eqHist(histograma, imagem) #equaliza o histograma
 #imgEq = aplicarHistEq(imagem, histEq) #aplica o histograma equalizado
 
 #imgGamma = gammaFilter(imagem, 2, 0.8)
-imgGauss = gaussianFilter(imagem, 3, 3)
+#imgGauss = gaussianFilter(imagem, 3, 3)
 
-#convMat = np.array([[0, 1, 1], [0, 2, 1], [1, 2, 0]])
-#convImg = mediaFilter(imagem, convMat, 3)
+convMat = np.array([[0, 1, 0], [0, 1, 1], [0, 2, 0]])
+convImg = convFilter(imagem, convMat, 3)
 
 cv2.namedWindow("DisplayWindow", cv2.WINDOW_NORMAL)
-cv2.imshow("DisplayWindow", imgGauss)
+cv2.imshow("DisplayWindow", convImg)
 
 cv2.waitKey(0) #espera pressionar qualquer tecla
 
